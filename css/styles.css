@@ -67,8 +67,8 @@
 #menu {
     list-style-type: none;
     display: flex;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     cursor: pointer;
     color: rgb(140, 140, 140);
 }
