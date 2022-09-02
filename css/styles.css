@@ -1,0 +1,261 @@
+/* 
+     UNIVERSIDAD DE CÓRDOBA 
+     Escuela Politécnica Superior de Córdoba
+     Departamento de Estadística, Econometría, Investigación Operativa, Organización de Empresas y
+     Economía Aplicada
+
+     Simulación de Modelos de Probabilidad con JavaScript: Lanzamiento de dados y monedas
+     Autor: David Checa Hidalgo 
+     Director: Roberto Espejo Mohedano
+     Curso 2021 - 2022 
+*/
+
+/* HOJAS DE ESTILOS CSS */
+
+/* Cabecera */
+.panel-heading {
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
+
+/* Contenedor de la imagen de Ayuda */
+#help {
+    width: 100%; 
+    margin-right: 15;
+}
+
+/* Imagen superior de Ayuda */
+#helpImage {
+    height: 20px;
+    width: 20px;
+    filter: opacity(0.2) drop-shadow(0 0 0 rgb(59, 59, 59)); 
+    cursor: pointer;
+}
+
+/* Autor en página de ayuda */
+#author {
+    text-align: center;
+}
+
+/* Título de la cabecera */
+.panel-heading h3 {
+    color: #2980b9;
+}
+
+/* Descripción de la cabecera */
+.panel-body h5 {
+    color: grey;
+    font-weight: 700;
+}
+
+/* Texto de la página de Ayuda */
+#helpContainer {
+    margin-left: 10%;
+}
+
+/* Contenedor central para las simulaciones */
+#centralContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 1170px;
+    margin: 10px auto;
+    padding-bottom: 10px;
+}
+
+/* Menú central de pestañas */
+#menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    color: rgb(140, 140, 140);
+}
+
+/* Opciones disponibles dentro de cada pestaña */
+.simulation {
+    padding: 10px;
+    width: 25%;
+    text-align: center;
+    border-bottom: 2px solid rgb(209, 208, 208);
+}
+
+/* Imágenes incluídas en el menú */
+#coin, #coins, #dice {
+    height: 30px;
+    width: 30px;
+    filter: opacity(0.4) drop-shadow(0 0 0 rgb(140, 140, 140)); 
+}
+
+/* Imagen de los dados pequeños */
+#smallDice {
+    height: 20px;
+    width: 20px;
+    filter: opacity(0.4) drop-shadow(0 0 0 rgb(140, 140, 140)); 
+}
+
+/* Opción del menú (pestaña) seleccionada */ 
+.clicked {
+    border-top: 3px solid  #2980b9;
+    border-left: 2px solid rgb(209, 208, 208);
+    border-right: 2px solid rgb(209, 208, 208);
+    border-bottom: 1px solid white;
+    border-radius: 5px 5px 0px 0px;
+    font-weight: 700;
+    color: #2980b9;    
+}
+
+/* Color de las monedas cuando sus pestañas están activas */
+.clicked #coins, .clicked #coin {
+    filter: opacity(0.4) drop-shadow(0 0 0 gold); 
+}
+
+/* Color de los dados cuando sus pestañas están activas */
+.clicked #dice, .clicked #smallDice {
+    filter: opacity(0.4) drop-shadow(0 0 0 black); 
+}
+
+/* Área central de simulaciones */
+#simulationArea {
+    border-bottom: 2px solid rgb(209, 208, 208);
+    border-left: 2px solid rgb(209, 208, 208);
+    border-right: 2px solid rgb(209, 208, 208);
+    text-align: center;
+    padding: 15px;
+}
+
+/* Contenedores de las entradas "P(x = Cara)", "Número de monedas", "Tipo de dado", "Número de dados" y "P(x = y)" */
+.inputBtn, .diceProb {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Entrada de datos "P(x = Cara)", "Número de monedas", "Tipo de dado", "Número de dados" y "P(x = y)" */
+.inputBtn input, .diceProb input  {
+    max-width: 60px;
+    text-align: center;
+    margin-right: 50px;
+}
+
+/* Entrada de datos del botón "Tipo de dado" */
+.divDiceType select {
+    max-width: 80px;
+    text-align: left;
+    margin-right: 50px;
+}
+
+/* Etiquetas de entradas "P(x = Cara)", "Número de monedas", "Tipo de dado" y "Número de dados" */ 
+.inputBtn label {
+    margin-right: 10px;   
+}
+
+/* Elementos que quedan ocultos al iniciar la web */
+.diceProb, .divDiceNum, .divDiceType, .bottomLegend, .divImage1, .divImage2, 
+.divImage3, .divImage4, .divImage5, .divImage6, .divImage7, .divImage8, .divText6 {
+    display: none;
+}
+
+/* Contenedor de botones de acción "Uno a uno", "Número fijo", "Continuo" e "Inicializar" */
+.actionBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Contenedor para el botón de acción "Detener" */
+.stopBtn {
+    display: none;
+    justify-content: center;
+}
+
+/* Contenedor para las imágenes de monedas/dados */
+.throwImages {
+    display: none;
+    padding: 7px;
+    border: 2px solid rgb(209, 208, 208);
+    max-width: 550px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px 15px 15px 15px;
+    background-color: ghostwhite;
+    justify-content: center;
+    min-height: 60px;
+}
+
+/* Imágenes que representan el lanzamiento de un/a dado/moneda */
+#image1, #image2, #image3, #image4, #image5, #image6, #image7, #image8 {
+    height: 60px;
+    width: 60px;
+    padding-right: 5px;
+}
+
+/* Contenedor para las gráficas */
+.graphic  {
+    display: none;
+    width: 50%;
+    height: 60%;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Leyenda inferior */
+.bottomLegend {
+    background-color: rgb(234, 234, 234);
+    color: #2980b9;  
+    border-radius: 5px 5px 5px 5px;
+    height: auto;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+/* Textos de la leyenda inferior */ 
+.bottomLegend span {
+    color: grey;
+    margin-right: 20px;
+}
+
+/* Logotipos del Aula Virtual y Área Docente de Estadística */
+#virtualClass, #teachingArea {
+    padding: 10px;
+}
+
+
+/* HOJAS DE ESTILOS CSS PARA PANTALLAS PEQUEÑAS*/
+
+
+@media screen and (max-width: 600px) {
+
+    /* Entrada de datos "P(x = Cara)", "Número de monedas", "Tipo de dado", "Número de dados" y "P(x = y)" */
+    .inputBtn input  {
+    max-width: 30px;
+    max-height: 30px;
+    margin: 10px;
+    }
+
+    .inputBtn {
+        flex-direction: column;
+        justify-content: center;
+        margin: 10px;
+    }
+
+    .divDiceType select {
+        max-height: 30px;
+        font-size: small;
+    }
+    
+    .inputBtn label {
+        font-size: small;
+    }
+
+    .actionBtn {
+        flex-direction: column;
+    }
+   
+}
