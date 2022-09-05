@@ -82,7 +82,9 @@
 }
 
 /* Imágenes incluídas en el menú */
-#coin, #coins, #dice {
+#coin,
+#coins,
+#dice {
     height: 30px;
     width: 30px;
     filter: opacity(0.4) drop-shadow(0 0 0 rgb(140, 140, 140)); 
@@ -101,18 +103,20 @@
     border-left: 2px solid rgb(209, 208, 208);
     border-right: 2px solid rgb(209, 208, 208);
     border-bottom: 1px solid white;
-    border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
     font-weight: 700;
     color: #2980b9;    
 }
 
 /* Color de las monedas cuando sus pestañas están activas */
-.clicked #coins, .clicked #coin {
+.clicked #coins,
+.clicked #coin {
     filter: opacity(0.4) drop-shadow(0 0 0 gold); 
 }
 
 /* Color de los dados cuando sus pestañas están activas */
-.clicked #dice, .clicked #smallDice {
+.clicked #dice,
+.clicked #smallDice {
     filter: opacity(0.4) drop-shadow(0 0 0 black); 
 }
 
@@ -126,7 +130,8 @@
 }
 
 /* Contenedores de las entradas "P(x = Cara)", "Nº de monedas", "Tipo de dado", "Nº de dados" y "P(x = y)" */
-.inputBtn, .diceProb {
+.inputBtn,
+.diceProb {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -135,7 +140,8 @@
 }
 
 /* Entrada de datos "P(x = Cara)", "Nº de monedas", "Tipo de dado", "Nº de dados" y "P(x = y)" */
-.inputBtn input, .diceProb input  {
+.inputBtn input,
+.diceProb input {
     max-width: 60px;
     text-align: center;
     margin-right: 50px;
@@ -156,8 +162,8 @@
 /* Elementos que quedan ocultos al iniciar el simulador */
 .diceProb, .divDiceNum, .divDiceType, .bottomLegend, .divImage1, .divImage2, 
 .divImage3, .divImage4, .divImage5, .divImage6, .divImage7, .divImage8,
-.divText1, .divText2, .divText3, .divText4, .divText5, .divText6, .divText7, .divText8,
-.divText9, .divText10, .divText11 {
+.divText1, .divText2, .divText3, .divText4, .divText5, .divText6, .divText7, 
+.divText8, .divText9, .divText10, .divText11 {
     display: none;
     flex-wrap: wrap;
 }
@@ -231,6 +237,7 @@
 }
 
 /* Logotipos del Aula Virtual y Área Docente de Estadística */
-#virtualClass, #teachingArea {
+#virtualClass,
+#teachingArea {
     padding: 10px;
 }
