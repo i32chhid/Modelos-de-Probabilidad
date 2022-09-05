@@ -207,7 +207,7 @@
 }
 
 /* Contenedor para las gráficas */
-.graphic  {
+.graphic {
     display: none;
     width: 50%;
     height: 60%;
