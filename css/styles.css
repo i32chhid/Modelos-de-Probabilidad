@@ -21,7 +21,7 @@
 /* Contenedor de la imagen de Ayuda */
 #help {
     width: 100%; 
-    margin-right: 15;
+    margin-right: 15px;
 }
 
 /* Imagen superior de Ayuda */
@@ -32,9 +32,14 @@
     cursor: pointer;
 }
 
-/* Autor en página de ayuda */
+/* Autor en página de Ayuda */
 #author {
     text-align: center;
+}
+
+/* Texto de la página de Ayuda */
+#helpContainer {
+    margin-left: 10%;
 }
 
 /* Título de la cabecera */
@@ -46,11 +51,6 @@
 .panel-body h5 {
     color: grey;
     font-weight: 700;
-}
-
-/* Texto de la página de Ayuda */
-#helpContainer {
-    margin-left: 10%;
 }
 
 /* Contenedor central para las simulaciones */
@@ -125,15 +125,16 @@
     padding: 15px;
 }
 
-/* Contenedores de las entradas "P(x = Cara)", "Número de monedas", "Tipo de dado", "Número de dados" y "P(x = y)" */
+/* Contenedores de las entradas "P(x = Cara)", "Nº de monedas", "Tipo de dado", "Nº de dados" y "P(x = y)" */
 .inputBtn, .diceProb {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-/* Entrada de datos "P(x = Cara)", "Número de monedas", "Tipo de dado", "Número de dados" y "P(x = y)" */
+/* Entrada de datos "P(x = Cara)", "Nº de monedas", "Tipo de dado", "Nº de dados" y "P(x = y)" */
 .inputBtn input, .diceProb input  {
     max-width: 60px;
     text-align: center;
@@ -147,25 +148,29 @@
     margin-right: 50px;
 }
 
-/* Etiquetas de entradas "P(x = Cara)", "Número de monedas", "Tipo de dado" y "Número de dados" */ 
+/* Etiquetas de entradas "P(x = Cara)", "Nº de monedas", "Tipo de dado" y "Nº de dados" */ 
 .inputBtn label {
     margin-right: 10px;   
 }
 
-/* Elementos que quedan ocultos al iniciar la web */
+/* Elementos que quedan ocultos al iniciar el simulador */
 .diceProb, .divDiceNum, .divDiceType, .bottomLegend, .divImage1, .divImage2, 
-.divImage3, .divImage4, .divImage5, .divImage6, .divImage7, .divImage8, .divText6 {
+.divImage3, .divImage4, .divImage5, .divImage6, .divImage7, .divImage8,
+.divText1, .divText2, .divText3, .divText4, .divText5, .divText6, .divText7, .divText8,
+.divText9, .divText10, .divText11 {
     display: none;
+    flex-wrap: wrap;
 }
 
-/* Contenedor de botones de acción "Uno a uno", "Número fijo", "Continuo" e "Inicializar" */
+/* Contenedor de botones de acción "Uno a uno", "Número fijo", "Continuo" y "Reiniciar" */
 .actionBtn {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     margin-top: 10px;
 }
 
-/* Contenedor para el botón de acción "Detener" */
+/* Contenedor del botón de acción "Detener" */
 .stopBtn {
     display: none;
     justify-content: center;
@@ -185,6 +190,7 @@
     background-color: ghostwhite;
     justify-content: center;
     min-height: 60px;
+    flex-wrap: wrap;
 }
 
 /* Imágenes que representan el lanzamiento de un/a dado/moneda */
@@ -202,6 +208,8 @@
     margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
+    min-width: 300px;
+    min-height: 100px;
 }
 
 /* Leyenda inferior */
@@ -219,43 +227,10 @@
 .bottomLegend span {
     color: grey;
     margin-right: 20px;
+    margin-left: 5px;
 }
 
 /* Logotipos del Aula Virtual y Área Docente de Estadística */
 #virtualClass, #teachingArea {
     padding: 10px;
-}
-
-
-/* HOJAS DE ESTILOS CSS PARA PANTALLAS PEQUEÑAS*/
-
-
-@media screen and (max-width: 600px) {
-
-    /* Entrada de datos "P(x = Cara)", "Número de monedas", "Tipo de dado", "Número de dados" y "P(x = y)" */
-    .inputBtn input  {
-    max-width: 30px;
-    max-height: 30px;
-    margin: 10px;
-    }
-
-    .inputBtn {
-        flex-direction: column;
-        justify-content: center;
-        margin: 10px;
-    }
-
-    .divDiceType select {
-        max-height: 30px;
-        font-size: small;
-    }
-    
-    .inputBtn label {
-        font-size: small;
-    }
-
-    .actionBtn {
-        flex-direction: column;
-    }
-   
 }
