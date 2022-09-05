@@ -13,13 +13,13 @@
 /* CÓDIGO JAVASCRIPT COMÚN PARA TODAS LAS PESTAÑAS*/
 
 // Variables globales
-var simulations = new Array(3).fill(0);     // Resultados de las simulaciones y nº de lanzamientos
-var noStop;                                 // Controla los lanzamientos continuos
-var tabSelected = "aCoin";                  // Pestaña seleccionada - Por defecto "Una moneda"
+let simulations = new Array(3).fill(0);     // Resultados de las simulaciones y nº de lanzamientos
+let noStop;                                 // Controla los lanzamientos continuos
+let tabSelected = "aCoin";                  // Pestaña seleccionada - Por defecto "Una moneda"
 
 // Gráficos generados dependiendo del tipo de simulación seleccionada
-var ctx = document.getElementById("myChart").getContext("2d");
-var myChart;
+let ctx = document.getElementById("myChart").getContext("2d");
+let myChart;
 
 initLineChart();
 
