@@ -1,3 +1,9 @@
+<?php
+    header('Content-Type: application/javascript; charset=utf-8');
+    
+    @require_once('../php/lang.php');
+?>
+
 /*
      UNIVERSIDAD DE CÓRDOBA
      Escuela Politécnica Superior de Córdoba
@@ -33,7 +39,7 @@ initLineChart();
 
 function showHelp() {  
 
-    window.open("./php/help.php", "helpText");
+    window.open("./php/help.php?lang=<?php echo($lang); ?>", "helpText");
 
 }
 

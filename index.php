@@ -53,7 +53,7 @@
         <script defer src="./js/severalCoins.php?lang=<?php echo($lang); ?>"></script>
         <script defer src="./js/aCoin.php?lang=<?php echo($lang); ?>"></script>
         <script defer src="./js/commonCoins.php?lang=<?php echo($lang); ?>"></script>
-        <script defer src="./js/simulator.js"></script>
+        <script defer src="./js/simulator.php?lang=<?php echo($lang); ?>"></script>
         <script defer src="./js/aDice.php?lang=<?php echo($lang); ?>"></script>
         <script defer src="./js/commonDice.js"></script>
         <script defer src="./js/severalDice.php?lang=<?php echo($lang); ?>"></script>
@@ -149,7 +149,7 @@
                             <div class="divDiceType">
                                 <label id="label_diceType"><?php echo $diceType[$lang][0]; ?></label>
                                 <!-- La entrada de selección quedará deshabilitada para la pestaña "Varios dados" -->
-                                <select id="diceType" class="diceType" title="<?php echo $diceType[$lang][1]; ?>" onclick="chooseDiceType()">
+                                <select id="diceType" class="diceType" title="<?php echo $diceType[$lang][1]; ?>" onchange="chooseDiceType()">
                                     <option id="defDiceType" value=""></option>
                                     <option id="perfectDice" value="Perfecto"><?php echo $diceType[$lang][2]; ?></option>
                                     <option id="trickedDice" value="Trucado"><?php echo $diceType[$lang][3]; ?></option>
