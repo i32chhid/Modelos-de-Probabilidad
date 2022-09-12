@@ -1,5 +1,5 @@
 <?php
-    header("Content-Type: application/javascript");
+    header('Content-Type: application/javascript; charset=utf-8');
 ?>
 
 /*
@@ -42,7 +42,7 @@ function chooseDiceType() {
         document.querySelector(".diceProb").style.display = "flex";
 
     // Tipo de dado "Trucado" - El usuario deberá introducir la probabilidad de obtener
-    // cualquier resultado del 1-5. Para el 6 se autocomplementará hasta que la suma de probabilidades sea 1
+    // cualquier resultado del 1-5. Para el 6 se autocumplimentará hasta que la suma de probabilidades sea 1
     } else if (chosenType != "") {
         document.getElementById("label_diceType").style.color = "black";
 
@@ -143,7 +143,7 @@ let aDiceLegends = [];
 
     $i = 0;
     foreach($aDiceLegends[$lang] as $legend) {
-        echo(html_entity_decode("aDiceLegends[$i] = '$legend';\n"));
+        echo("aDiceLegends[$i] = '$legend';\n");
         $i++;
     }
 ?>

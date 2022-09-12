@@ -149,7 +149,7 @@
 
 /* Entrada de datos del botón "Tipo de dado" */
 .divDiceType select {
-    max-width: 80px;
+    max-width: 90px;
     text-align: left;
     margin-right: 50px;
 }

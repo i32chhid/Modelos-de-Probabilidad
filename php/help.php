@@ -19,7 +19,7 @@
      
         <!-- Archivo PHP que gestiona el idioma -->
         <?php
-            require_once(__DIR__ . './lang.php');
+            require_once('../php/lang.php');
         ?>   
 
         <!-- Título en el idioma seleccionado -->
@@ -35,7 +35,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
    
         <!-- Hojas de estilos de Bootstrap y personalizadas -->
-        <link href="../css/styles.css?11072022" rel="stylesheet" type="text/css" media="screen" />
+        <link href="../css/styles.css" rel="stylesheet" type="text/css" media="screen" />
         <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />    
    
@@ -110,7 +110,7 @@
                                     <i class="fa fa-user fa-fw"></i> Manuel Jurado Bello
                                 </a>
                                 <a title="ma1dipej@uco.es" href="mailto:ma1dipej@uco.es?subject=UCO%20-%20Aula%20Virtual%20de%20Estadística:%20Lanzamiento%20de%20monedas%20y%20dados." class="coord">
-                                    <i class="fa fa-user fa-fw"></i> José Diz Pérez
+                                    <i class="fa fa-user fa-fw"></i><?php echo htmlentities("José Diz Pérez"); ?>
                                 </a>
                             </p>
 

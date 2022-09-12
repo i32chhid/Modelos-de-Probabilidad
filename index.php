@@ -19,7 +19,7 @@
     
         <!-- Carga del archivo PHP que gestiona el idioma -->
         <?php
-            require_once(__DIR__ . './php/lang.php');
+            require_once('./php/lang.php');
         ?>
 
         <!-- Título en el idioma seleccionado -->
@@ -423,14 +423,14 @@
 
                             <!-- Enlace de correo electrónico a los coordinadores -->             
                             <p>
-                                <a title="ma1esmor@uco.es" href="mailto:ma1esmor@uco.es?subject=UCO%20-%20Aula%20Virtual%20de%20Estadística:%20Lanzamiento%20de%20dados%20y%20monedas" class="coord">
+                                <a title="ma1esmor@uco.es" href="mailto:ma1esmor@uco.es?subject=UCO%20-%20Aula%20Virtual%20de%20Estad&iacute;stica:%20Lanzamiento%20de%20dados%20y%20monedas" class="coord">
                                     <i class="fa fa-user fa-fw"></i> Roberto Espejo Mohedano
                                 </a>
-                                <a title="ma1jubem@uco.es" href="mailto:ma1jubem@uco.es?subject=UCO%20-%20Aula%20Virtual%20de%20Estadística:%20Lanzamiento%20de%20dados%20y%20monedas" class="coord">
+                                <a title="ma1jubem@uco.es" href="mailto:ma1jubem@uco.es?subject=UCO%20-%20Aula%20Virtual%20de%20Estad&iacute;stica:%20Lanzamiento%20de%20dados%20y%20monedas" class="coord">
                                     <i class="fa fa-user fa-fw"></i> Manuel Jurado Bello
                                 </a>
-                                <a title="ma1dipej@uco.es" href="mailto:ma1dipej@uco.es?subject=UCO%20-%20Aula%20Virtual%20de%20Estadística:%20Lanzamiento%20de%20dadoss%20y%20monedas" class="coord">
-                                    <i class="fa fa-user fa-fw"></i> José Diz Pérez
+                                <a title="ma1dipej@uco.es" href="mailto:ma1dipej@uco.es?subject=UCO%20-%20Aula%20Virtual%20de%20Estad&iacute;stica:%20Lanzamiento%20de%20dadoss%20y%20monedas" class="coord">
+                                    <i class="fa fa-user fa-fw"></i><?php echo htmlentities("José Diz Pérez"); ?>
                                 </a>
                             </p>
 

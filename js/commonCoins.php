@@ -1,5 +1,5 @@
 <?php
-    header("Content-Type: application/javascript");
+    header('Content-Type: application/javascript; charset=utf-8');
 ?>
 
 
@@ -33,10 +33,10 @@ function validatePx() {
 
         $i = 0;
         foreach($pX[$lang] as $message) {
-            echo(html_entity_decode("aCoinMsg[$i] = '$message';\n"));
+            echo("aCoinMsg[$i] = '$message';\n");
             $i++;
         }
-?>
+    ?>
     
     // Probabilidad de obtener cara introducida por el usuario
     let pX = document.getElementById("pX").value;
@@ -58,7 +58,7 @@ function validatePx() {
 
 /**
  * @name calcCoinsProb
- * @description Calcula las probabilidades, simulada y teórica, de salir "Cara" al lanzar una o varias monedas al aire
+ * @description Calcula las probabilidades o frecuencias, simulada y teórica, de salir "Cara" al lanzar una o varias monedas al aire
  * @param {number} throws - Número de lanzamientos
  * @param {number} coinsNum - Número de monedas a lanzar [1-8]
  * @param {string} button - Nombre del botón pulsado por el usuario
@@ -160,3 +160,5 @@ function calcCoinsProb(throws, coinsNum, button) {
         }
         
     return [simulated, theoretical];
+
+}

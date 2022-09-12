@@ -10,10 +10,6 @@
     Director: Roberto Espejo Mohedano
     Curso 2021 - 2022
 */
-
-    // Codificación de caracteres interna a UTF-8 en PHP
-    mb_internal_encoding("UTF-8");
-    header('Content-Type: text/html; charset=utf-8');
     
     // Idioma seleccionado por el usuario (por defecto se establece español)
     $lang = "es";
@@ -27,6 +23,15 @@
     if (!isset($lang) || !($lang == "es" || $lang == "en" || $lang == "fr")) {
         $lang = "es";
     }
+
+    $base_dir = dirname(__FILE__); // Absolute path to your installation, ex: /var/www/mywebsite
+    $doc_root = preg_replace("!{$_SERVER['SCRIPT_NAME']}$!", '', $_SERVER['SCRIPT_FILENAME']); # ex: /var/www
+    $protocol = empty($_SERVER['HTTPS']) ? 'http' : 'https';
+    $domain = $_SERVER['SERVER_NAME'];
+    $port = $_SERVER['SERVER_PORT'];
+    $disp_port = ($protocol == 'http' && $port == 80 || $protocol == 'https' && $port == 443) ? '' : ":$port";
+    $base_url = preg_replace('!^{$doc_root}!', '', $base_dir); # ex: '' or '/mywebsite'
+    $full_url = "$protocol://{$domain}{$disp_port}{$base_url}";
 
     // Título de la página en el navegador web
     $title['es'] = htmlentities("Lanzamiento de dados y monedas");
@@ -123,17 +128,17 @@
     $tab['fr'] = array(htmlentities("Une pièce"), htmlentities("Plusieurs pièces"), htmlentities("Un dé"), htmlentities("Plusieurs dés"));
 
     // Entrada "P(x = Cara)" y mensajes vinculados
-    $pX['es'] = array(htmlentities("P(x = Cara): "), htmlentities("Probabilidad de obtener Cara"), htmlentities("P(x = Cara) ha de ser > 0 y <= 1"));
-    $pX['en'] = array(htmlentities("P(x = Right side): "), htmlentities("Probability of getting Right side"), htmlentities("P(x = Right side) has to be > 0 and <= 1"));
-    $pX['fr'] = array(htmlentities("P(x = Face):"), htmlentities("Probabilité d'obtenir Face"), htmlentities("P(x = Face) doit être > 0 et <= 1"));
+    $pX['es'] = array(htmlentities("P(x = Cara): "), htmlentities("Probabilidad de obtener Cara"), "P(x = Cara) ha de ser > 0 y <= 1");
+    $pX['en'] = array(htmlentities("P(x = Right side): "), htmlentities("Probability of getting Right side"), "P(x = Right side) has to be > 0 and <= 1");
+    $pX['fr'] = array(htmlentities("P(x = Face):"), htmlentities("Probabilité d'obtenir Face"), "P(x = Face) doit être > 0 et <= 1");
         
     // Textos vinculados para la pestaña "Una moneda"
-    $aCoinLegends["es"] = array(htmlentities("P(x = Cara) Simulada"), htmlentities("P(x = Cara) Teórica"), htmlentities("Nº de lanzamientos"), htmlentities("Probabilidad"),
-                                htmlentities("Lanzamientos: "), htmlentities("Caras: "), htmlentities("Frecuencia caras (%): "), htmlentities("Cruces: "), htmlentities("Frecuencia cruces (%): "));
-    $aCoinLegends["en"] = array(htmlentities("P(x = Right side) Simulated"), htmlentities("P(x = Right side) Theoretical"), htmlentities("Nº of throws"), htmlentities("Probability"),
-                                htmlentities("Throws: "), htmlentities("Right sides: "), htmlentities("Frequency of right sides (%): "), htmlentities("Reverses: "), htmlentities("Frequency of reverses (%): "));
-    $aCoinLegends["fr"] = array(htmlentities("P(x = Face) Simulé"), htmlentities("P(x = Face) Théorique"), htmlentities("Nº de lancements"), htmlentities("Probabilité"),
-                                htmlentities("Lancements: "), htmlentities("Faces: "), htmlentities("Fréquence des faces (%): "), htmlentities("Traversées: "), htmlentities("Fréquence des traversées (%): "));
+    $aCoinLegends["es"] = array("P(x = Cara) Simulada", "P(x = Cara) Teórica", "Nº de lanzamientos", "Probabilidad",
+                                "Lanzamientos: ", "Caras: ", "Frecuencia caras (%): ", "Cruces: ", "Frecuencia cruces (%): ");
+    $aCoinLegends["en"] = array("P(x = Right side) Simulated", "P(x = Right side) Theoretical", "Nº of throws", "Probability",
+                                "Throws: ", "Right sides: ", "Frequency of right sides (%): ", "Reverses: ", "Frequency of reverses (%): ");
+    $aCoinLegends["fr"] = array("P(x = Face) Simulé", "P(x = Face) Théorique", "Nº de lancements", "Probabilité",
+                                "Lancements: ", "Faces: ", "Fréquence des faces (%): ", "Traversées: ", "Fréquence des traversées (%): ");
 
     // Entrada "Nº de monedas" y mensajes vinculados
     $coinsNum['es'] = array(htmlentities("Nº de monedas:"), htmlentities("Número de monedas a lanzar"));
@@ -141,12 +146,12 @@
     $coinsNum['fr'] = array(htmlentities("Nº de pièces:"), htmlentities("Nombre de pièces à lancer"));
 
     // Textos vinculados para la pestaña "Varias monedas"
-    $sevCoinsLeg["es"] = array(htmlentities("Frecuencia Simulada"), htmlentities("Frecuencia Teórica"), htmlentities("Número de Caras obtenidas"), htmlentities("Frecuencia relativa (%)"),
-                               htmlentities("Lanzamientos: "), htmlentities("El número de monedas a lanzar ha de ser >=2 y <=8"));
-    $sevCoinsLeg["en"] = array(htmlentities("Simulated Frequency"), htmlentities("Theoretical Frequency"), htmlentities("Number of Right sides obtained"), htmlentities("Relative frequency (%)"), 
-                               htmlentities("Throws: "), htmlentities("The number of coins to be throwed has to be >=2 and <=8"));
-    $sevCoinsLeg["fr"] = array(htmlentities("Fréquence Simulée"), htmlentities("Fréquence Théorique"), htmlentities("Nombre de Visages obtenus"), htmlentities("Fréquence relative (%)"),
-                               htmlentities("Lancements: "), htmlentities("Le nombre de pièces à lancer doit être >=2 et <=8"));
+    $sevCoinsLeg["es"] = array("Frecuencia Simulada", "Frecuencia Teórica", "Número de Caras obtenidas", "Frecuencia relativa (%)",
+                               "Lanzamientos: ", "El número de monedas a lanzar ha de ser >=2 y <=8");
+    $sevCoinsLeg["en"] = array("Simulated Frequency", "Theoretical Frequency", "Number of Right sides obtained", "Relative frequency (%)", 
+                               "Throws: ", "The number of coins to be throwed has to be >=2 and <=8");
+    $sevCoinsLeg["fr"] = array("Fréquence Simulée", "Fréquence Théorique", "Nombre de Visages obtenus", "Fréquence relative (%)",
+                               "Lancements: ", "Le nombre de pièces à lancer doit être >=2 et <=8");
 
     // Entrada "P(x = y)" y mensajes vinculados
     $diceProb['es'] = array(htmlentities("Probabilidad de obtener 1"), htmlentities("Probabilidad de obtener 2"), htmlentities("Probabilidad de obtener 3"),
@@ -162,15 +167,15 @@
     $diceType['fr'] = array(htmlentities("Type de dé:"), htmlentities("Type de dé à lancer"), htmlentities("Parfait"), htmlentities("Truqué"));
         
     // Textos vinculados para la pestaña "Un dado"
-    $aDiceLegends["es"] = array(htmlentities("Probabilidad Teórica:  Disco externo          -||-        Probabilidad Simulada:  Disco interno"), htmlentities("Cara 1"), htmlentities("Cara 2"), htmlentities("Cara 3"),
-                               htmlentities("Cara 4"), htmlentities("Cara 5"), htmlentities("Cara 6"), htmlentities("Lanzamientos: "), htmlentities("Frecuencias Relativas (%)"),
-                               htmlentities("Debe seleccionar el tipo de dado (Perfecto o Trucado)"), htmlentities("P(x = 6) errónea ya que todas las probabilidades han de ser > 0, < 1 y su suma igual a 1"));
-    $aDiceLegends["en"] = array(htmlentities("Theoretical Probability:  External disk       -||-        Simulated Probability:  Internal disk"), htmlentities("Face 1"), htmlentities("Face 2"), htmlentities("Face 3"), 
-                               htmlentities("Face 4"), htmlentities("Face 5"), htmlentities("Face 6"), htmlentities("Throws: "), htmlentities("Relative Frequencies (%)"),
-                               htmlentities("You must select the type of dice (Perfect or Tricked)"), htmlentities("P(x = 6) wrong as all probabilities must be > 0, < 1 and their sum equal to 1"));
-    $aDiceLegends["fr"] = array(htmlentities("Probabilité théorique:  Disque externe        -||-        Probabilité simulée :  Disque interne "), htmlentities("Face 1"), htmlentities("Face 2"), htmlentities("Face 3"),
-                               htmlentities("Face 4"), htmlentities("Face 5"), htmlentities("Face 6"), htmlentities("Lancements: "), htmlentities("Fréquences Relatives (%)"),
-                               htmlentities("Vous devez choisir le type de dé (Parfait ou Truqué)"), htmlentities("P(x = 6) faux car toutes les probabilités doivent être > 0, < 1 et leur somme égale à 1"));
+    $aDiceLegends["es"] = array("Probabilidad Teórica:  Disco externo          -||-        Probabilidad Simulada:  Disco interno", "Cara 1", "Cara 2", "Cara 3",
+                               "Cara 4", "Cara 5", "Cara 6", "Lanzamientos: ", "Frecuencias Relativas (%)",
+                               "Debe seleccionar el tipo de dado (Perfecto o Trucado)", "P(x = 6) errónea ya que todas las probabilidades han de ser > 0, < 1 y su suma igual a 1");
+    $aDiceLegends["en"] = array("Theoretical Probability:  External disk       -||-        Simulated Probability:  Internal disk", "Face 1", "Face 2", "Face 3", 
+                               "Face 4", "Face 5", "Face 6", "Throws: ", "Relative Frequencies (%)",
+                               "You must select the type of dice (Perfect or Tricked)", "P(x = 6) wrong as all probabilities must be > 0, < 1 and their sum equal to 1");
+    $aDiceLegends["fr"] = array("Probabilité théorique:  Disque externe        -||-        Probabilité simulée :  Disque interne ", "Face 1", "Face 2", "Face 3",
+                               "Face 4", "Face 5", "Face 6", "Lancements: ", "Fréquences Relatives (%)",
+                               "Vous devez choisir le type de dé (Parfait ou Truqué)", "P(x = 6) faux car toutes les probabilités doivent être > 0, < 1 et leur somme égale à 1");
     
     // Entrada "Nº de dados" y mensajes vinculados
     $diceNum['es'] = array(htmlentities("Nº de dados:"), htmlentities("Número de dados a lanzar"));
@@ -178,12 +183,12 @@
     $diceNum['fr'] = array(htmlentities("Nº de dés:"), htmlentities("Nombre de dés à lancer"));
         
     // Textos vinculados para la pestaña "Varios dados"
-    $sevDiceLeg["es"] = array(htmlentities("Frecuencia Simulada"), htmlentities("Frecuencia Teórica"), htmlentities("Suma de puntuaciones"), htmlentities("Frecuencia relativa (%)"),
-                               htmlentities("Lanzamientos: "), htmlentities("El número de dados a lanzar ha de ser >=2 y <=8"));
-    $sevDiceLeg["en"] = array(htmlentities("Simulated Frequency"), htmlentities("Theoretical Frequency"), htmlentities("Sum of scores"), htmlentities("Relative frequency (%)"), 
-                               htmlentities("Throws: "), htmlentities("The number of dice to be throwed has to be >=2 and <=8"));
-    $sevDiceLeg["fr"] = array(htmlentities("Fréquence Simulée"), htmlentities("Fréquence Théorique"), htmlentities("Somme des scores"), htmlentities("Fréquence relative (%)"),
-                               htmlentities("Lancements: "), htmlentities("Le nombre de dés à lancer doit être >=2 et <=8"));
+    $sevDiceLeg["es"] = array("Frecuencia Simulada", "Frecuencia Teórica", "Suma de puntuaciones", "Frecuencia relativa (%)",
+                               "Lanzamientos: ", "El número de dados a lanzar ha de ser >=2 y <=8");
+    $sevDiceLeg["en"] = array("Simulated Frequency", "Theoretical Frequency", "Sum of scores", "Relative frequency (%)", 
+                               "Throws: ", "The number of dice to be throwed has to be >=2 and <=8");
+    $sevDiceLeg["fr"] = array("Fréquence Simulée", "Fréquence Théorique", "Somme des scores", "Fréquence relative (%)",
+                               "Lancements: ", "Le nombre de dés à lancer doit être >=2 et <=8");
     
     // Botones de acción y título informativo al pasar el ratón
     $button['es'] = array(htmlentities("Genera un solo lanzamiento"), htmlentities("Uno a uno"), htmlentities("Genera un número de lanzamientos fijo"), htmlentities("Número fijo"),
@@ -207,5 +212,6 @@
     $coord['es'] = htmlentities("Coordinadores:");
     $coord['en'] = htmlentities("Coordinators:");
     $coord['fr'] = htmlentities("Coordonnateurs:");
+    
     
 ?>

@@ -1,5 +1,5 @@
 <?php
-    header("Content-Type: application/javascript");
+    header('Content-Type: application/javascript; charset=utf-8');
 ?>
 
 
@@ -96,7 +96,7 @@ let sevCoinsLeg = [];
 
     $i = 0;
     foreach($sevCoinsLeg[$lang] as $legend) {
-        echo(html_entity_decode("sevCoinsLeg[$i] = '$legend';\n"));
+        echo("sevCoinsLeg[$i] = '$legend';\n");
         $i++;
     }
 ?>

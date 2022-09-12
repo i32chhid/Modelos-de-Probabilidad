@@ -1,5 +1,5 @@
 <?php
-    header("Content-Type: application/javascript");
+    header('Content-Type: application/javascript; charset=utf-8');
 ?>
 
 
@@ -98,7 +98,7 @@ let sevDiceLeg = [];
 
     $i = 0;
     foreach($sevDiceLeg[$lang] as $legend) {
-        echo(html_entity_decode("sevDiceLeg[$i] = '$legend';\n"));
+        echo("sevDiceLeg[$i] = '$legend';\n");
         $i++;
     }
 ?>
@@ -141,7 +141,7 @@ function valDiceNum(button, diceNum) {
 
 /**
  * @name calcDiceProb
- * @description Calcula la probabilidad de la suma de puntuaciones al lanzar varios dados al aire
+ * @description Calcula las frecuencias de la suma de puntuaciones al lanzar varios dados al aire
  * @param {number} throws - Número de lanzamientos
  * @param {string} button - Nombre del botón pulsado por el usuario
  * @param {number} diceNum - Número de dados a lanzar [2-8]
@@ -238,8 +238,8 @@ function calcDiceProb(throws, button, diceNum) {
  * @name showChartDice
  * @description Actualiza y muestra en pantalla un diagrama de barras para la pestaña "Varios dados"
  * @param {array} dataCollection - dataCollection[0] Suma de puntuaciones posibles según el número de dados a lanzar
- *                               - dataCollection[1] Probabilidad simulada tras realizar los lanzamientos de los dados
- *                               - dataCollection[2] Probabilidad teórica según el número de dados a lanzar
+ *                               - dataCollection[1] Frecuencia simulada tras realizar los lanzamientos de los dados
+ *                               - dataCollection[2] Frecuencia teórica según el número de dados a lanzar
  * @param {number} diceNum - Número de dados a lanzar [2-8]
  * @return {void}
 */
