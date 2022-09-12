@@ -50,14 +50,13 @@
         <script defer src="./js/Chart.js"></script>
     
         <!-- Archivos con codificación en JavaScript -->
-        <script defer src="./js/severalCoins.php"></script>
-        <script defer src="./js/aCoin.php"></script>
-        <script defer src="./js/commonCoins.php"></script>
+        <script defer src="./js/severalCoins.php?lang=<?php echo($lang); ?>"></script>
+        <script defer src="./js/aCoin.php?lang=<?php echo($lang); ?>"></script>
+        <script defer src="./js/commonCoins.php?lang=<?php echo($lang); ?>"></script>
         <script defer src="./js/simulator.js"></script>
-        <script defer src="./js/aDice.php"></script>
+        <script defer src="./js/aDice.php?lang=<?php echo($lang); ?>"></script>
         <script defer src="./js/commonDice.js"></script>
-        <script defer src="./js/severalDice.php"></script>
-            
+        <script defer src="./js/severalDice.php?lang=<?php echo($lang); ?>"></script>
     </head>
 
     <body>
@@ -118,7 +117,7 @@
                     <li class="simulation" id="severalDice" onclick="start(id)">
                         <img id="smallDice" src="./images/dice-3.svg" class="hidden-xs hidden-sm" alt="Varios dados" />
                         <img id="smallDice" src="./images/dice-6.svg" class="hidden-xs hidden-sm" alt="Varios dados" />
-                        <?php echo $tab[$lang][3]; ?>  
+                        <?php echo $tab[$lang][3]; ?>
                     </li>
 
                 </ul>
@@ -131,37 +130,37 @@
                     <div class="buttons">
 
                         <!-- Entradas "P(x = Cara)", "Nº de monedas", "Tipo de dado" y "Nº de dados" -->
-                        <div class="inputBtn"> 
+                        <div class="inputBtn">
                         
                             <!-- Entrada "Nº de monedas" -->
-                            <div class="divCoinsNum">       
+                            <div class="divCoinsNum">
                                 <label id="label_coinsNum" for="coinsNum"><?php echo $coinsNum[$lang][0]; ?></label>
                                 <!-- La entrada numérica queda deshabilitada para la pestaña "Una moneda" -->
                                 <input type="number" id="coinsNum" min="1" max="8" step="1" value="1" title="<?php echo $coinsNum[$lang][1]; ?>" disabled />
-                            </div>    
+                            </div>
                     
                             <!-- Entrada "P(x = Cara)" -->
-                            <div class="divPx">     
+                            <div class="divPx">
                                 <label id="label_pX" for="pX" title="<?php echo $pX[$lang][1]; ?>"><?php echo $pX[$lang][0]; ?></label>
                                 <input type="number" id="pX" min="0.1" max="1.0" step="0.1" value="0.0" title="<?php echo $pX[$lang][2]; ?>" />
                             </div>
             
                             <!-- Entrada "Tipo de dado" -->
                             <div class="divDiceType">
-                                <label id="label_diceType"><?php echo $diceType[$lang][0]; ?></label>  
-                                <!-- La entrada de selección quedará deshabilitada para la pestaña "Varios dados" -->           
+                                <label id="label_diceType"><?php echo $diceType[$lang][0]; ?></label>
+                                <!-- La entrada de selección quedará deshabilitada para la pestaña "Varios dados" -->
                                 <select id="diceType" class="diceType" title="<?php echo $diceType[$lang][1]; ?>" onclick="chooseDiceType()">
                                     <option id="defDiceType" value=""></option>
                                     <option id="perfectDice" value="Perfecto"><?php echo $diceType[$lang][2]; ?></option>
-                                    <option id="trickedDice" value="Trucado"><?php echo $diceType[$lang][3]; ?></option>                             
+                                    <option id="trickedDice" value="Trucado"><?php echo $diceType[$lang][3]; ?></option>
                                 </select>
                             </div>
 
-                            <!-- Entrada "Nº de dados" -->                                  
-                            <div class="divDiceNum">            
+                            <!-- Entrada "Nº de dados" -->
+                            <div class="divDiceNum">
                                 <label id="label_diceNum" for="diceNum"><?php echo $diceNum[$lang][0]; ?></label>
                                 <!-- La entrada numérica quedará deshabilitada para la pestaña "Un dado" -->
-                                <input type="number" id="diceNum" min="2" max="8" step="1" value="2" title="<?php echo $diceNum[$lang][1]; ?>" />                                            
+                                <input type="number" id="diceNum" min="2" max="8" step="1" value="2" title="<?php echo $diceNum[$lang][1]; ?>" />
                             </div>
                                              
                         </div>
@@ -170,37 +169,37 @@
                         <!-- Entradas "P(x = y)" -->
                         <div class="diceProb">
                         
-                            <!-- Entrada "P(x = 1)" -->   
+                            <!-- Entrada "P(x = 1)" -->
                             <div>
                                 <label id="label_pX1" for="pX1">P(x = 1):</label>
                                 <input type="number" id="pX1" min="0.1" max="1.0" step="0.1" value="0.0" title="<?php echo $diceProb[$lang][0]; ?>" />
                             </div>
 
-                            <!-- Entrada "P(x = 2)" -->   
+                            <!-- Entrada "P(x = 2)" -->
                             <div>
                                 <label id="label_pX2" for="pX2">P(x = 2):</label>
                                 <input type="number" id="pX2" min="0.1" max="1.0" step="0.1" value="0.0" title="<?php echo $diceProb[$lang][1]; ?>" />
                             </div>
                                     
-                            <!-- Entrada "P(x = 3)" -->    
+                            <!-- Entrada "P(x = 3)" -->
                             <div>
                                 <label id="label_pX3" for="pX3">P(x = 3):</label>
                                 <input type="number" id="pX3" min="0.1" max="1.0" step="0.1" value="0.0" title="<?php echo $diceProb[$lang][2]; ?>" />
                             </div>
 
-                            <!-- Entrada "P(x = 4)" -->   
+                            <!-- Entrada "P(x = 4)" -->
                             <div>
                                 <label id="label_pX4" for="pX4">P(x = 4):</label>
                                 <input type="number" id="pX4" min="0.1" max="1.0" step="0.1" value="0.0" title="<?php echo $diceProb[$lang][3]; ?>" />
                             </div>
               
                             <!-- Entrada "P(x = 5)" -->
-                            <div>                    
+                            <div>
                                 <label id="label_pX5" for="pX5">P(x = 5):</label>
                                 <input type="number" id="pX5" min="0.1" max="1.0" step="0.1" value="0.0" title="<?php echo $diceProb[$lang][4]; ?>" />
                             </div>
 
-                            <!-- Entrada "P(x = 6)" -->   
+                            <!-- Entrada "P(x = 6)" -->
                             <div>
                                 <label id="label_pX6" for="pX6">P(x = 6):</label>
                                 <input type="number" id="pX6" min="0.1" max="1.0" step="0.1" value="0.0" title="<?php echo $diceProb[$lang][5]; ?>" />
@@ -238,7 +237,7 @@
                                 <button id="continuous" title="<?php echo $button[$lang][4];?>" onclick="simulate(id)">
                                     <?php echo $button[$lang][5];?>
                                 </button>
-                            </div>                   
+                            </div>
 
                             <!-- Botón "Reiniciar" -->
                             <div class="btn">
@@ -248,7 +247,7 @@
                             </div>
 
                         </div>
-                        <!-- FIN de Botones de acción -->             
+                        <!-- FIN de Botones de acción -->
                                        
                     </div>
                     <!-- FIN Botones de acción y entradas numéricas -->
@@ -315,7 +314,7 @@
                     <!-- Contenedor para las gráficas -->
                     <div class="graphic">
                         <canvas id="myChart"></canvas>
-                    </div>   
+                    </div>
                     <!-- Fin Contenedor para las gráficas -->
                 
                     <!-- Leyenda inferior -->
@@ -331,7 +330,7 @@
                         <div class="divText2">
                             <label id="label2" for="text2"></label>
                             <span id="text2"></span>
-                        </div>              
+                        </div>
 
                         <!-- Dato 3 -->
                         <div class="divText3">
@@ -349,7 +348,7 @@
                         <div class="divText5">
                             <label id="label5" for="text5"></label>
                             <span id="text5"></span>
-                        </div>  
+                        </div>
                     
                         <!-- Dato 6 -->
                         <div class="divText6">
@@ -388,17 +387,17 @@
                         </div>
 
                     </div>
-                    <!-- FIN Leyenda inferior --> 
+                    <!-- FIN Leyenda inferior -->
                 
                 </div>
-                <!-- FIN Área central de simulaciones -->       
+                <!-- FIN Área central de simulaciones -->
            
             </div>
             <!-- FIN Contenedor central -->
            
             <!-- Pie de página -->
-            <div class="row text-center"> 
-                <div class="col-lg-12">          
+            <div class="row text-center">
+                <div class="col-lg-12">
                     <div class="row well well-lg text-center">
 
                         <!-- Logotipo del Aula Virtual de Estadística -->
@@ -421,7 +420,7 @@
                             </p>
                             <h4><?php print $coord[$lang]; ?></h4>
 
-                            <!-- Enlace de correo electrónico a los coordinadores -->             
+                            <!-- Enlace de correo electrónico a los coordinadores -->
                             <p>
                                 <a title="ma1esmor@uco.es" href="mailto:ma1esmor@uco.es?subject=UCO%20-%20Aula%20Virtual%20de%20Estad&iacute;stica:%20Lanzamiento%20de%20dados%20y%20monedas" class="coord">
                                     <i class="fa fa-user fa-fw"></i> Roberto Espejo Mohedano
