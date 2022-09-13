@@ -1,7 +1,7 @@
 <?php
     header('Content-Type: application/javascript; charset=utf-8');
     
-    @require_once('../php/lang.php');
+    @require_once('../model/lang.php');
 ?>
 
 /*
@@ -39,7 +39,7 @@ initLineChart();
 
 function showHelp() {  
 
-    window.open("./php/help.php?lang=<?php echo($lang); ?>", "helpText");
+    window.open("./model/help.php?lang=<?php echo($lang); ?>", "helpText");
 
 }
 

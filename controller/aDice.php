@@ -139,7 +139,7 @@ function throwAdice(button) {
 // Almacenamos las leyendas según el idioma activo
 let aDiceLegends = [];
 <?php
-    @require_once('../php/lang.php');
+    @require_once('../model/lang.php');
 
     $i = 0;
     foreach($aDiceLegends[$lang] as $legend) {

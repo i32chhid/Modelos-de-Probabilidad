@@ -155,7 +155,7 @@ function initLineChart(){
 // Almacenamos las leyendas según el idioma activo
 let aCoinLegends = [];
 <?php
-    @require_once('../php/lang.php');
+    @require_once('../model/lang.php');
 
     $i = 0;
     foreach($aCoinLegends[$lang] as $legend) {

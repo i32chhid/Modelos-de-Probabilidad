@@ -29,7 +29,7 @@ function validatePx() {
     // Almacenamos el texto del alert según el idioma activo
     let aCoinMsg = [];
     <?php
-        @require_once('../php/lang.php');
+        @require_once('../model/lang.php');
 
         $i = 0;
         foreach($pX[$lang] as $message) {

@@ -12,7 +12,7 @@
 */
     
     // Idioma seleccionado por el usuario (por defecto se establece español)
-    $lang = "es";
+    $lang = "fr";
     
     if (array_key_exists("lang", $_REQUEST)) {
         $lang = $_REQUEST["lang"];
@@ -130,7 +130,7 @@
     // Entrada "P(x = Cara)" y mensajes vinculados
     $pX['es'] = array(htmlentities("P(x = Cara): "), htmlentities("Probabilidad de obtener Cara"), "P(x = Cara) ha de ser > 0 y <= 1");
     $pX['en'] = array(htmlentities("P(x = Right side): "), htmlentities("Probability of getting Right side"), "P(x = Right side) has to be > 0 and <= 1");
-    $pX['fr'] = array(htmlentities("P(x = Face):"), htmlentities("Probabilité d'obtenir Face"), "P(x = Face) doit être > 0 et <= 1");
+    $pX['fr'] = array(htmlentities("P(x = Face): "), htmlentities("Probabilité d'obtenir Face"), "P(x = Face) doit être > 0 et <= 1");
         
     // Textos vinculados para la pestaña "Una moneda"
     $aCoinLegends["es"] = array("P(x = Cara) Simulada", "P(x = Cara) Teórica", "Nº de lanzamientos", "Probabilidad",

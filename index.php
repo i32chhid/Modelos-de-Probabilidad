@@ -19,7 +19,7 @@
     
         <!-- Carga del archivo PHP que gestiona el idioma -->
         <?php
-            require_once('./php/lang.php');
+            require_once('./model/lang.php');
         ?>
 
         <!-- Título en el idioma seleccionado -->
@@ -42,21 +42,21 @@
         <meta name="author" content="David Checa Hidalgo" />
 
         <!-- Hojas de estilos de Bootstrap y personalizadas -->
-        <link href="./css/styles.css" rel="stylesheet" type="text/css" media="screen" />
-        <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="./view/styles.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="./view/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />
         
         <!-- Librería gráfica -->
-        <script defer src="./js/Chart.js"></script>
+        <script defer src="./controller/libs/Chart.js"></script>
     
         <!-- Archivos con codificación en JavaScript -->
-        <script defer src="./js/severalCoins.php?lang=<?php echo($lang); ?>"></script>
-        <script defer src="./js/aCoin.php?lang=<?php echo($lang); ?>"></script>
-        <script defer src="./js/commonCoins.php?lang=<?php echo($lang); ?>"></script>
-        <script defer src="./js/simulator.php?lang=<?php echo($lang); ?>"></script>
-        <script defer src="./js/aDice.php?lang=<?php echo($lang); ?>"></script>
-        <script defer src="./js/commonDice.js"></script>
-        <script defer src="./js/severalDice.php?lang=<?php echo($lang); ?>"></script>
+        <script defer src="./controller/severalCoins.php?lang=<?php echo($lang); ?>"></script>
+        <script defer src="./controller/aCoin.php?lang=<?php echo($lang); ?>"></script>
+        <script defer src="./controller/commonCoins.php?lang=<?php echo($lang); ?>"></script>
+        <script defer src="./controller/simulator.php?lang=<?php echo($lang); ?>"></script>
+        <script defer src="./controller/aDice.php?lang=<?php echo($lang); ?>"></script>
+        <script defer src="./controller/commonDice.js"></script>
+        <script defer src="./controller/severalDice.php?lang=<?php echo($lang); ?>"></script>
     </head>
 
     <body>

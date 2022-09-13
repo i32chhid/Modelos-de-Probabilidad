@@ -92,7 +92,7 @@ function throwCoins(button) {
 // Almacenamos las leyendas y mensajes según el idioma activo
 let sevCoinsLeg = [];
 <?php
-    @require_once('../php/lang.php');
+    @require_once('../model/lang.php');
 
     $i = 0;
     foreach($sevCoinsLeg[$lang] as $legend) {
